@@ -1,46 +1,65 @@
 
 class ProductManager {
-    constructor(products){
-        this.products = products;
-        
+    constructor() {
+        this.products = [];
+
     }
 
-    static id = 0;
-
-    addProduct = (title, description, price, thumbnail, code, stock) => {
-        var prod = new Product(title, description, price, thumbnail, code, stock);
-        for (var i = 0; i < this.products.length; i++) {
-            if (this.products[i].code == prod.code) {
-                console.log(`No se puede añadir producto ${prod.title}, code repetido.`);
-                return;
-            }
-        }
-        this.products.push(prod);
-        ProductManager.id++;
-
-
-
-    };
     getProducts = () => {
         return this.products;
     };
 
+    static id = 0;
+
+    addProduct = (title, description, price, thumbnail, code, stock) => {
+        const prod = {
+            title,
+            description,
+            price,
+            thumbnail,
+            code,
+            stock
+        };
+        if (title === null || description === null || price === null || thumbnail === null ||
+            code === null || stock === null) {
+            console.log('No puede crearse el producto con un valor nulo');
+            return;
+        }
+        if (this.products.length === 0) {
+            prod.id = 1;
+
+        } else {
+            prod.id = this.products[this.products.length - 1].id + 1; //accedemos al ultimo elemento de nuestro arreglo
+        }
+
+        const productsIndex = this.products.findIndex(product => product.code === code);
+        if (productsIndex != -1) {
+            console.log('Ya existe un producto con este codigo');
+            return;
+        }
+
+        this.products.push(prod);
 
 
+    };
 
-}
-
-class Product {
-
-    constructor(title, description, price, thumbnail, code, stock) {
-        this.title = title;
-        this.description = description;
-        this.price = price;
-        this.thumbnail = thumbnail;
-        this.code = code;
-        this.stock = stock;
-        this.id = ProductManager.id;
+    getProductById = (idBuscado) => {
+        const productIndex = this.products.findIndex(prod => prod.id === idBuscado);
+        if (productIndex === -1){
+            console.log('Not found');
+            return;
+        }else {
+            console.log(this.products[idBuscado]);
+        }
 
     }
 
 }
+
+/* Pruebas.
+const manejadorProductos = new ProductManager();
+console.log(manejadorProductos.getProducts());
+manejadorProductos.addProduct('harina', 'harina1', 55, 'sdad', 1, 5);
+manejadorProductos.addProduct('carbon', 'carbon2', 78, 'sdadffd', 6, 7);
+console.log(manejadorProductos.getProducts());
+manejadorProductos.getProductById(3); */
