@@ -9,8 +9,6 @@ class ProductManager {
         return this.products;
     };
 
-    static id = 0;
-
     addProduct = (title, description, price, thumbnail, code, stock) => {
         const prod = {
             title,
@@ -45,11 +43,11 @@ class ProductManager {
 
     getProductById = (idBuscado) => {
         const productIndex = this.products.findIndex(prod => prod.id === idBuscado);
-        if (productIndex === -1){
+        if (productIndex === -1) {
             console.log('Not found');
             return;
-        }else {
-            console.log(this.products[idBuscado]);
+        } else {
+            console.log(this.products[productIndex]);
         }
 
     }
