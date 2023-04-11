@@ -1,0 +1,24 @@
+{
+  "name": "desafio2",
+  "version": "1.0.0",
+  "description": "Desafio2",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noelialavilla/progBackend.git#main"
+  },
+  "author": "Noelia Lavilla",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/noelialavilla/progBackend/issues"
+  },
+  "homepage": "https://github.com/noelialavilla/progBackend/tree/main#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodeman": "^1.1.2"
+  }
+}

@@ -1,0 +1,29 @@
+[
+	{
+		"title": "Harina",
+		"description": "Harina leudante",
+		"price": 220,
+		"thumbnail": "/imager.jpg",
+		"code": "ABC4",
+		"stock": 5,
+		"id": 1
+	},
+	{
+		"title": "Carbon",
+		"description": "Carboncito",
+		"price": 500,
+		"thumbnail": "/imagenC.jpg",
+		"code": "ABC5",
+		"stock": 6,
+		"id": 2
+	},
+	{
+		"title": "Pan",
+		"description": "Pancito",
+		"price": 100,
+		"thumbnail": "/imagenP.jpg",
+		"code": "ABC7",
+		"stock": 6,
+		"id": 3
+	}
+]
