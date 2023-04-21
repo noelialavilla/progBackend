@@ -50,7 +50,7 @@ export default class ProductManager {
             products.push(product);
 
             await fs.promises.writeFile(this.path, JSON.stringify(products, null, '\t'));
-            return products;
+            return 'Se agregó el producto con éxito.';
         } catch (error) {
             return error;
         }

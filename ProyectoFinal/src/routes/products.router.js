@@ -30,10 +30,17 @@ router.get('/:pid', async (req, res) => {
 })
 
 
-router.post('/', (req, res) =>{
+router.post('/', async (req, res) =>{
     const product = req.body;
-    products.push(product);
-    res.send({status :'success', product});
+    res.status(200).send(JSON.stringify(await productManager.addProduct(product)));
+    
+});
+
+router.put('/:pid', async (req, res) =>{
+    const pid = Number(req.params.pid);
+    const product = req.body;
+    res.status(200).send(JSON.stringify(await productManager.updateProduct(pid,product)));
+    
 });
 
 

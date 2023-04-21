@@ -9,12 +9,12 @@
 		"id": 1
 	},
 	{
-		"title": "Carbon",
-		"description": "Carboncito",
-		"price": 500,
-		"thumbnail": "/imagenC.jpg",
-		"code": "ABC5",
-		"stock": 6,
+		"title": "Carbon Nuevo",
+		"description": "Carbon chiquito",
+		"price": 440,
+		"thumbnail": "/imager.jpg",
+		"code": "ABC9",
+		"stock": "16",
 		"id": 2
 	},
 	{
@@ -25,5 +25,23 @@
 		"code": "ABC7",
 		"stock": 6,
 		"id": 3
+	},
+	{
+		"title": "Leche",
+		"description": "Leche milkaut",
+		"price": 220,
+		"thumbnail": "/imager.jpg",
+		"code": "ABC8",
+		"stock": 16,
+		"id": 4
+	},
+	{
+		"title": "Arroz",
+		"description": "Leche milkaut",
+		"price": 220,
+		"thumbnail": "/imager.jpg",
+		"code": "ABC9",
+		"stock": 16,
+		"id": 5
 	}
 ]
