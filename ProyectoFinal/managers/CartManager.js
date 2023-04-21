@@ -29,7 +29,7 @@ export default class CartManager {
         const carts = await this.getCarts();
         try {
             if (carts.length === 0) {
-                carts.id = 1;
+                cart.id = 1;
 
             } else {
                 cart.id = carts[carts.length - 1].id + 1;
@@ -42,7 +42,7 @@ export default class CartManager {
             carts.push(cart);
 
             await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
-            return 'Se agregó el producto con éxito.';
+            return 'Se agregó el carrito con éxito.';
         } catch (error) {
             return error;
         }
@@ -73,8 +73,11 @@ export default class CartManager {
             products.push(nuevoProd);
         } else {
             products[productIndex].quantity++;
+            
         }
+        
         carts[cid].products = products;
+        
         await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
         return 'Se agregó el producto al carrito con éxito.';
 
