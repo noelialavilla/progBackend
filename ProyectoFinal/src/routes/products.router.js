@@ -5,11 +5,10 @@ import ProductManager from '../../managers/ProductManager.js'
 
 const productManager = new ProductManager('../files/products.json');
 
-const products =[];
-const router = Router();
+const productRouter = Router();
 
 
-router.get('/', async (req, res) =>{
+productRouter.get('/', async (req, res) =>{
     const { limit } = req.query;
     if (limit) {
         const products = await productManager.getProducts(limit);
@@ -24,30 +23,30 @@ router.get('/', async (req, res) =>{
 
 });
 
-router.get('/:pid', async (req, res) => {
+productRouter.get('/:pid', async (req, res) => {
     const pid = Number(req.params.pid);
     res.status(200).send(JSON.stringify(await productManager.getProductById(pid)));
 })
 
 
-router.post('/', async (req, res) =>{
+productRouter.post('/', async (req, res) =>{
     const product = req.body;
     res.status(200).send(JSON.stringify(await productManager.addProduct(product)));
     
 });
 
-router.put('/:pid', async (req, res) =>{
+productRouter.put('/:pid', async (req, res) =>{
     const pid = Number(req.params.pid);
     const product = req.body;
     res.status(200).send(JSON.stringify(await productManager.updateProduct(pid,product)));
     
 });
 
-router.delete('/:pid', async (req, res) =>{
+productRouter.delete('/:pid', async (req, res) =>{
     const pid = Number(req.params.pid);
     res.status(200).send(JSON.stringify(await productManager.deleteProduct(pid)));
     
 });
 
 
-export default router;
+export default productRouter;

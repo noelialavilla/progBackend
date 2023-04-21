@@ -34,5 +34,16 @@
 		"code": "ABC9",
 		"stock": 16,
 		"id": 5
+	},
+	{
+		"title": "Milanesa",
+		"description": "Mila Nesa",
+		"price": 290,
+		"thumbnails": "/imager.jpg",
+		"code": "ABCDF",
+		"stock": 250,
+		"category": "carnes",
+		"id": 6,
+		"status": true
 	}
 ]

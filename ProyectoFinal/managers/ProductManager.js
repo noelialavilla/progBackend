@@ -36,12 +36,17 @@ export default class ProductManager {
             } else {
                 product.id = products[products.length - 1].id + 1;
             }
-            if (product.title === null || product.description === null || product.price === null || product.thumbnail === null ||
-                product.code === null || product.stock === null) {
+            
+            if (product.title === null || product.description === null || product.price === null || 
+                product.code === null || product.category === null || product.stock === null) {
                 return 'No puede crearse el producto con un valor nulo';
                 
             }
             
+            if (!product.status)
+            {
+                product.status=true;
+            }
             const productsIndex = products.findIndex(prod => prod.code === product.code);
             if (productsIndex != -1) {
                 return 'Ya existe un producto con este codigo';
