@@ -26,7 +26,7 @@ export default class CartManager {
     }
 
     addCart = async (cart) => {
-        const carts = await this.getCarts();
+        let carts = await this.getCarts();
         try {
             if (carts.length === 0) {
                 cart.id = 1;
@@ -50,7 +50,7 @@ export default class CartManager {
     };
 
     getCartById = async (cid) => {
-        const carts = await this.getCarts();
+        let carts = await this.getCarts();
         const cartIndex = carts.findIndex(cart => cart.id === cid);
         if (cartIndex === -1) {
             return 'El carrito buscado no existe.';
@@ -61,9 +61,10 @@ export default class CartManager {
     }
 
     addProdToCart = async (cid, pid) => {
-        const carts = await this.getCarts();
-        const cart = await this.getCartById(cid);
-        const products = cart.products;
+        let carts = await this.getCarts();
+        
+        let cart = await this.getCartById(cid);
+        let products = cart.products;
         const productIndex = products.findIndex(prod => prod.id === pid);
         if (productIndex === -1) {
             const nuevoProd = {
@@ -76,8 +77,9 @@ export default class CartManager {
             
         }
         
-        carts[cid].products = products;
         
+        carts[cid] = cart;
+        //no se por que no actualiza la variable carts con el cambio que realice en su indice cid
         await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
         return 'Se agregó el producto al carrito con éxito.';
 
