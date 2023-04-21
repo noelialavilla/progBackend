@@ -9,15 +9,6 @@
 		"id": 1
 	},
 	{
-		"title": "Carbon Nuevo",
-		"description": "Carbon chiquito",
-		"price": 440,
-		"thumbnail": "/imager.jpg",
-		"code": "ABC9",
-		"stock": "16",
-		"id": 2
-	},
-	{
 		"title": "Pan",
 		"description": "Pancito",
 		"price": 100,
