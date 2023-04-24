@@ -29,10 +29,10 @@ export default class CartManager {
         let carts = await this.getCarts();
         try {
             if (carts.length === 0) {
-                cart.id = 1;
+                cart.idCart = 1;
 
             } else {
-                cart.id = carts[carts.length - 1].id + 1;
+                cart.idCart = carts[carts.length - 1].id + 1;
             }
             if (cart.products === null) {
                 return 'No puede crearse el carrito sin productos';
@@ -51,40 +51,39 @@ export default class CartManager {
 
     getCartById = async (cid) => {
         let carts = await this.getCarts();
-        const cartIndex = carts.findIndex(cart => cart.id === cid);
-        if (cartIndex === -1) {
-            return 'El carrito buscado no existe.';
-        } else {
-            return carts[cartIndex];
-        }
+        const cartIndex = carts.findIndex(cart => cart.idCart === cid);
+        return cartIndex;
 
     }
 
     addProdToCart = async (cid, pid) => {
         let carts = await this.getCarts();
-        
-        let cart = await this.getCartById(cid);
-        let products = cart.products;
-        const productIndex = products.findIndex(prod => prod.id === pid);
+
+        let cartIndex = await this.getCartById(cid);
+        if (cartIndex ===-1){
+            return "No se puede agregar el producto ya que el carrito indicado no existe."
+        }
+
+        let products = carts[cartIndex].products;
+        const productIndex = products.findIndex(prod => prod.idProd === pid);
         if (productIndex === -1) {
             const nuevoProd = {
-                id: pid,
+                idProd: pid,
                 quantity: 1
             };
             products.push(nuevoProd);
         } else {
             products[productIndex].quantity++;
-            
+
         }
-        
-        
-        carts[cid] = cart;
-        //no se por que no actualiza la variable carts con el cambio que realice en su indice cid
+
+        carts[cartIndex].products = products;
+
         await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
         return 'Se agregó el producto al carrito con éxito.';
 
     };
 
-    
+
 
 }
