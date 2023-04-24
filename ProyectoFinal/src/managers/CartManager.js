@@ -49,17 +49,24 @@ export default class CartManager {
 
     };
 
-    getCartById = async (cid) => {
+    getCartId = async (cid) => {
         let carts = await this.getCarts();
         const cartIndex = carts.findIndex(cart => cart.idCart === cid);
         return cartIndex;
+
+    }
+    getCartById = async (cid) => {
+        let carts = await this.getCarts();
+        let idCart = await this.getCartId(cid);
+        
+        return carts[idCart];
 
     }
 
     addProdToCart = async (cid, pid) => {
         let carts = await this.getCarts();
 
-        let cartIndex = await this.getCartById(cid);
+        let cartIndex = await this.getCartId(cid);
         if (cartIndex ===-1){
             return "No se puede agregar el producto ya que el carrito indicado no existe."
         }
