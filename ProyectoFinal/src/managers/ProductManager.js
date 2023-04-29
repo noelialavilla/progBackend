@@ -22,7 +22,7 @@ export default class ProductManager {
                 return [];
             }
         }
-        
+        console.log(this.path);
         return [];
 
     }

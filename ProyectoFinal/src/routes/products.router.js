@@ -31,6 +31,9 @@ productRouter.get('/:pid', async (req, res) => {
 
 productRouter.post('/', async (req, res) =>{
     const product = req.body;
+    const io = req.app.get('socketio');
+    io.emit("showProducts", await productManager.getProducts(0));
+
     res.status(200).send(JSON.stringify(await productManager.addProduct(product)));
     
 });
@@ -44,6 +47,8 @@ productRouter.put('/:pid', async (req, res) =>{
 
 productRouter.delete('/:pid', async (req, res) =>{
     const pid = Number(req.params.pid);
+    const io = req.app.get('socketio');
+    io.emit("showProducts", await productManager.getProducts(0));
     res.status(200).send(JSON.stringify(await productManager.deleteProduct(pid)));
     
 });
