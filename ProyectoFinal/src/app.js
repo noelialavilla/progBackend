@@ -7,11 +7,13 @@ import {
     Server
 } from 'socket.io';
 import viewsRouter from './routes/views.router.js';
-import homeRouter from './routes/home.router.js';
+import ProductManager from './managers/ProductManager.js';
+const productManager = new ProductManager('./files/products.json');
+
 
 const app = express();
 
-app.use(express.static(`${__dirname}/public`))
+app.use(express.static(`${__dirname}/public`));
 
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
@@ -20,7 +22,7 @@ app.engine('handlebars', handlebars.engine());
 app.set('views', `${__dirname}/views`);
 app.set('view engine', 'handlebars');
 
-app.use("/", homeRouter);
+app.use("/", viewsRouter);
 app.use('/realtimeproducts', viewsRouter)
 
 app.use('/api/products', productRouter);
@@ -32,8 +34,9 @@ const server = app.listen(8080, () => console.log('Listening server on port 8080
 
 const io = new Server(server)
 
-io.on('connection', socket=>{
+io.on('connection', async socket=>{
     console.log('Conectado');
-   
+    const products = await productManager.getProducts(0);
+    socket.emit('showProducts', products)
 });
 app.set('socketio', io);

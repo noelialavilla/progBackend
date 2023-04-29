@@ -45,5 +45,16 @@
 		"category": "carnes",
 		"id": 6,
 		"status": true
+	},
+	{
+		"title": "milanga",
+		"description": "Mila Nesa",
+		"price": 290,
+		"thumbnails": "/imager.jpg",
+		"code": "harinan",
+		"stock": 250,
+		"category": "carnes",
+		"status": true,
+		"id": 7
 	}
 ]

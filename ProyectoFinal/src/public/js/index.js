@@ -3,11 +3,11 @@ const socket = io();
 
 const container = document.getElementById('container');
 
-
 socket.on('showProducts', data => {
     container.innerHTML = ``
-
+    
     data.forEach(prod => {
+        
         container.innerHTML += `
             <ul>
                 <li>title: ${prod.title}</li> 
