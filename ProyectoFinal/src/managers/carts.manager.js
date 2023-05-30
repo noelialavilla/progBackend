@@ -1,4 +1,5 @@
 import fs from 'fs';
+import { cartModel } from '../models/carts.model.js';
 
 export default class CartManager {
     constructor(path) {
@@ -83,14 +84,11 @@ export default class CartManager {
             products[productIndex].quantity++;
 
         }
-
+        
         carts[cartIndex].products = products;
 
         await fs.promises.writeFile(this.path, JSON.stringify(carts, null, '\t'));
         return 'Se agregó el producto al carrito con éxito.';
 
     };
-
-
-
 }

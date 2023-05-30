@@ -7,7 +7,7 @@ import {
     Server
 } from 'socket.io';
 import viewsRouter from './routes/views.router.js';
-import ProductManager from './managers/ProductManager.js';
+import ProductManager from './managers/products.manager.js';
 const productManager = new ProductManager('./files/products.json');
 
 

@@ -1,0 +1,60 @@
+[
+	{
+		"title": "Harina",
+		"description": "Harina leudante",
+		"price": 220,
+		"thumbnail": "/imager.jpg",
+		"code": "ABC4",
+		"stock": 5,
+		"id": 1
+	},
+	{
+		"title": "Pan",
+		"description": "Pancito",
+		"price": 100,
+		"thumbnail": "/imagenP.jpg",
+		"code": "ABC7",
+		"stock": 6,
+		"id": 3
+	},
+	{
+		"title": "Leche",
+		"description": "Leche milkaut",
+		"price": 220,
+		"thumbnail": "/imager.jpg",
+		"code": "ABC8",
+		"stock": 16,
+		"id": 4
+	},
+	{
+		"title": "Arroz",
+		"description": "Leche milkaut",
+		"price": 220,
+		"thumbnail": "/imager.jpg",
+		"code": "ABC9",
+		"stock": 16,
+		"id": 5
+	},
+	{
+		"title": "Milanesa",
+		"description": "Mila Nesa",
+		"price": 290,
+		"thumbnails": "/imager.jpg",
+		"code": "ABCDF",
+		"stock": 250,
+		"category": "carnes",
+		"id": 6,
+		"status": true
+	},
+	{
+		"title": "milanga",
+		"description": "Mila Nesa",
+		"price": 290,
+		"thumbnails": "/imager.jpg",
+		"code": "harinan",
+		"stock": 250,
+		"category": "carnes",
+		"status": true,
+		"id": 7
+	}
+]

@@ -1,0 +1,13 @@
+<h1>Cart</h1>
+<a href="/"><button>Volver</button></a>
+
+<h2>Products</h2>
+
+{{#each products}}
+  <div>
+    <b><p>{{this.product.title}}</p></b>
+    <div>${{this.product.price}} x {{this.quantity}} Unidades</div>
+  </div>
+{{/each}}
+
+<script src="/socket.io/socket.io.js"></script>
